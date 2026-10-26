@@ -1,6 +1,7 @@
 """Unit tests for yash913212_pyutil utility functions."""
 
 import pytest
+
 from yash913212_pyutil import (
     __version__,
     count_words,
@@ -23,10 +24,15 @@ class TestSlugify:
         assert slugify("Hello World!") == "hello-world"
 
     def test_leading_and_trailing_spaces(self):
-        assert slugify("  leading and trailing spaces  ") == "leading-and-trailing-spaces"
+        assert (
+            slugify("  leading and trailing spaces  ") == "leading-and-trailing-spaces"
+        )
 
     def test_multiple_special_characters(self):
-        assert slugify("Python 3.12 & Packaging -- Guide!!") == "python-312-packaging-guide"
+        assert (
+            slugify("Python 3.12 & Packaging -- Guide!!")
+            == "python-312-packaging-guide"
+        )
 
     def test_underscores_and_dashes(self):
         assert slugify("hello_world_test-case") == "hello-world-test-case"
@@ -100,5 +106,7 @@ class TestTruncateText:
             truncate_text("Hello", -1)
 
     def test_max_length_less_than_suffix_raises_error(self):
-        with pytest.raises(ValueError, match="max_length cannot be less than suffix length"):
+        with pytest.raises(
+            ValueError, match="max_length cannot be less than suffix length"
+        ):
             truncate_text("Hello World", 2, suffix="...")

@@ -37,7 +37,13 @@ pip install .
 ## Quickstart
 
 ```python
-from yash913212_pyutil import slugify, count_words, to_uppercase, reverse_string, truncate_text
+from yash913212_pyutil import (
+    slugify,
+    count_words,
+    to_uppercase,
+    reverse_string,
+    truncate_text,
+)
 
 # Convert text into a clean URL slug
 slug = slugify("Hello World! This is Python 3")
